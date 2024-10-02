@@ -1,0 +1,17 @@
+<h1>Lista de Filmes</h1>
+
+<h2>Filmes Lançados</h2>
+<ul>
+  <% @movies.select { |movie| movie.release_date <= Date.today }.each do |movie| %>
+    <li><%= link_to movie.title, movie_path(movie) %> (Lançado em: <%= movie.release_date %>)</li>
+  <% end %>
+</ul>
+
+<h2>Filmes Futuros</h2>
+<ul>
+  <% @movies.select { |movie| movie.release_date > Date.today }.each do |movie| %>
+    <li><%= link_to movie.title, movie_path(movie) %> (Lançamento em: <%= movie.release_date %>)</li>
+  <% end %>
+</ul>
+
+<%= link_to 'Novo Filme', new_movie_path %>

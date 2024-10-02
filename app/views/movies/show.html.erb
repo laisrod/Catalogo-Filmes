@@ -1,0 +1,6 @@
+<h1><%= @movie.title %></h1>
+<p><%= @movie.description %></p>
+<p>Data de Lançamento: <%= @movie.release_date %></p>
+
+<p>Diretor: <%= link_to @movie.director.name, @movie.director %></p>
+<p>Gênero: <%= link_to @movie.genre.name, @movie.genre %></p>

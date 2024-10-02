@@ -1,0 +1,10 @@
+<h1><%= @director.name %></h1>
+<p><%= @director.bio %></p>
+<p>Data de Nascimento: <%= @director.birth_date %></p>
+
+<h2>Filmes deste Diretor:</h2>
+<ul>
+  <% @movies.each do |movie| %>
+    <li><%= link_to movie.title, movie %></li>
+  <% end %>
+</ul>
