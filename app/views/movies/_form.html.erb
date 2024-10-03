@@ -1,0 +1,43 @@
+<div class="field">
+  <%= form.label :poster %>
+  <%= form.file_field :poster %>
+</div>
+
+<div class="field">
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+</div>
+
+<div class="field">
+  <%= form.label :release_year %>
+  <%= form.number_field :release_year %>
+</div>
+
+<div class="field">
+  <%= form.label :synopsis %>
+  <%= form.text_area :synopsis %>
+</div>
+
+<div class="field">
+  <%= form.label :country %>
+  <%= form.text_field :country %>
+</div>
+
+<div class="field">
+  <%= form.label :duration %>
+  <%= form.number_field :duration %>
+</div>
+
+<div class="field">
+  <%= form.label :director %>
+  <%= form.collection_select :director_id, @directors || [], :id, :name, prompt: "Selecione um Diretor" %>
+</div>
+
+<div class="field">
+  <%= form.label :genre_id, "Gênero" %>
+  <%= form.collection_select :genre_id, @genres || [], :id, :name, prompt: "Selecione um Gênero" %>
+</div>
+<div class="field">
+  <%= form.label :draft, "Rascunho?" %>
+  <%= form.check_box :draft %>
+</div>

@@ -1,0 +1,24 @@
+<h1>Editar Diretor</h1>
+
+<%= form_with(model: @director, local: true) do |form| %>
+  <% if @director.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@director.errors.count, "erro") %> impediu que o filme fosse editado:</h2>
+
+      <ul>
+        <% @director.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= render 'form', form: form %>
+  <div class="actions">
+    <%= form.submit "Editar diretor" %>
+  </div>
+  
+    
+ <% end %>
+
+<%= link_to 'Voltar', directors_path %>

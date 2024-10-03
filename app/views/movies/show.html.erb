@@ -1,6 +1,12 @@
+<% if @movie.poster.attached? %>
+  <%= image_tag @movie.poster, width: "300", height: "200" %>
+<% end %>
 <h1><%= @movie.title %></h1>
-<p><%= @movie.description %></p>
-<p>Data de Lançamento: <%= @movie.release_date %></p>
+<p><%= @movie.synopsis %></p>
+<p>Data de Lançamento: <%= @movie.release_year %></p>
 
 <p>Diretor: <%= link_to @movie.director.name, @movie.director %></p>
 <p>Gênero: <%= link_to @movie.genre.name, @movie.genre %></p>
+
+<%= link_to 'Editar', edit_movie_path(@movie) %><br />
+<%= link_to 'Voltar', movies_path %> 

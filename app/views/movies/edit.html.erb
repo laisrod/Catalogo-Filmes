@@ -1,0 +1,26 @@
+<h1>Editar Filme</h1>
+
+<%= form_with(model: @movie, local: true) do |form| %>
+  <% if @movie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@movie.errors.count, "erro") %> impediu que o filme fosse editado:</h2>
+
+      <ul>
+        <% @movie.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if @movie.poster.attached? %>
+    <%= image_tag @movie.poster, width: "300", height: "200" %>
+  <% end %>
+  <%= render 'form', form: form %>
+  <div class="actions">
+    <%= form.submit "Editar Filme" %>
+  </div>
+  
+    
+ <% end %>
+
+<%= link_to 'Voltar', movies_path %>

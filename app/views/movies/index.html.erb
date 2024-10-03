@@ -1,17 +1,18 @@
 <h1>Lista de Filmes</h1>
-
-<h2>Filmes Lançados</h2>
+<h2>Publicados:</h2>
 <ul>
-  <% @movies.select { |movie| movie.release_date <= Date.today }.each do |movie| %>
-    <li><%= link_to movie.title, movie_path(movie) %> (Lançado em: <%= movie.release_date %>)</li>
+  <% @movies.where(draft: false).each do |movie| %>
+      <li><%= link_to "#{movie.title} (#{movie.release_year})", movie_path(movie) %></li>
   <% end %>
 </ul>
-
-<h2>Filmes Futuros</h2>
+<hr />
+<h2>Rascunhos:</h2>
 <ul>
-  <% @movies.select { |movie| movie.release_date > Date.today }.each do |movie| %>
-    <li><%= link_to movie.title, movie_path(movie) %> (Lançamento em: <%= movie.release_date %>)</li>
+  <% @movies.where(draft: true).each do |movie| %>
+    <li><%= movie.title %> | <%= link_to 'Publicar', publish_movie_path(movie) %></li>
   <% end %>
 </ul>
-
+<hr />
 <%= link_to 'Novo Filme', new_movie_path %>
+<br />
+  <%= link_to 'Voltar', root_path %>

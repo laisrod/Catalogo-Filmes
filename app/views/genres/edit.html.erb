@@ -1,0 +1,24 @@
+<h1>Editar genêro</h1>
+
+<%= form_with(model: @genre, local: true) do |form| %>
+  <% if @genre.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@genre.errors.count, "erro") %> impediu que o filme fosse editado:</h2>
+
+      <ul>
+        <% @genre.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= render 'form', form: form %>
+  <div class="actions">
+    <%= form.submit "Editar genêro" %>
+  </div>
+  
+    
+ <% end %>
+
+<%= link_to 'Voltar', genres_path %>

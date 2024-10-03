@@ -1,7 +1,11 @@
-<h1>Gêneros</h1>
-<ul>
-  <% @genres.each do |genre| %>
-    <li><%= link_to genre.name, genre %></li>
-  <% end %>
-</ul>
-<%= link_to 'Novo Gênero', new_genre_path %>
+<h1>Gênero: <%= @genre.name %></h1>
+<h2> Filmes <%= @genre.name %></h2>
+
+<% @movies.each do |movie| %>
+  <li><%= link_to movie.title, movie_path(movie.id) %><br> </li>
+<% end %>
+<br />
+
+<%= link_to 'Editar', edit_genre_path(@genre) %>
+<br />
+<%= link_to 'Voltar', genres_path %>
